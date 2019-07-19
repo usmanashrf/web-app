@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
+namespace Api_test.Models
+{
+    public class ApiModel
+    {
+
+
+
+        public object getdata()
+        {
+            string url = "http://127.0.0.1:5000/unique";
+            var client = new WebClient();
+            var content = client.DownloadString(url);
+            var serializer = new JavaScriptSerializer();
+            var jsonContent = serializer.Deserialize<Object>(content);
+
+           // return Convert.ToString(jsonContent);
+
+            return Convert.ToString(jsonContent);
+
+
+
+            // return Convert.ToString(Json(apiobj.getdata(), JsonRequestBehavior.AllowGet));
+
+        } 
+        public string data
+        {
+            get
+            {
+                return (data);
+            }
+             set
+            {
+                getdata();
+
+            }
+
+        }
+
+    }
+
+}
