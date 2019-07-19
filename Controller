@@ -1,0 +1,40 @@
+using Api_test.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Api_test.Controllers
+{
+    public class ApiController : Controller
+    {
+        
+        // GET: Api
+        public ActionResult Index()
+        {
+
+           
+
+            return View();
+        }
+        //public ActionResult showdata()
+        public JsonResult showdata()
+       
+        {
+            ApiModel apiobj = new ApiModel();
+         
+
+           return (Json(apiobj.getdata(), JsonRequestBehavior.AllowGet));
+
+
+           
+        }
+        public ActionResult show()
+        {
+            ApiModel apiobj = new ApiModel();
+            return View(apiobj.getdata());
+        }
+       
+    }
+}
